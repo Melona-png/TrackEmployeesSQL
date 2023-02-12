@@ -148,10 +148,10 @@ function addEmployee() {
   type: "list",
   message: "Which employee would you like to remove?",
   choices: [
-  "John Doe",
-  "Jane Doe",
-  "Bob Smith",
-  "Sara Johnson"
+  "Faker Goat",
+  "Morse Code",
+  "Json Borne",
+  "MorganAnd Morgan"
   ]
   })
   .then(function(answer) {
