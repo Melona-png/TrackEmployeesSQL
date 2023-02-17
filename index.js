@@ -153,13 +153,13 @@ function main() {
                   },
                 ])
                 .then((res) => {
-                  db.query("INSERT INTO employee SET ?", {
+                  db.query("REPLACE INTO employee SET ?", {
                     first_name: res.employeeFirstName,
                     last_name: res.employeeLastName,
                     role_id: res.roleID,
                     manager_id: res.manager
                   });
-                  console.log(`${res.roleName} added to roles!`);
+                  console.log(`${res.employee} employee updated!`);
                   main();
                 })
                 break;
