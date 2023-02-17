@@ -139,7 +139,7 @@ function main() {
                 });
 
           break;
-          case "Update an employee":
+          case "Update an employee role":
   
               inquirer
                 .prompt([
@@ -149,18 +149,19 @@ function main() {
                     message: "Which employee would you like to update?",
                     choices: [
                       `SELECT * FROM employee`
-                  ]
+                    ]
                   },
-        ])
-        .then((res) => {
-          db.query("INSERT INTO employee SET ?", {
-            first_name: res.employeeFirstName,
-            last_name: res.employeeLastName,
-            role_id: res.roleID,
-            manager_id: res.manager
-          });
-          console.log(`${res.roleName} added to roles!`);
-          main();
-        })
-      }}
+                ])
+                .then((res) => {
+                  db.query("INSERT INTO employee SET ?", {
+                    first_name: res.employeeFirstName,
+                    last_name: res.employeeLastName,
+                    role_id: res.roleID,
+                    manager_id: res.manager
+                  });
+                  console.log(`${res.roleName} added to roles!`);
+                  main();
+                })
+                break;
+              }}
     )};
