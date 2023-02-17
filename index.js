@@ -28,7 +28,7 @@ function main() {
           "Add a department",
           "Add a role",
           "Add an employee",
-          "Update an employee role",
+          "Update an employee",
         ],
       },
     ])
@@ -139,29 +139,45 @@ function main() {
                 });
 
           break;
-          case "Update an employee role":
-  
-              inquirer
-                .prompt([
-                  {
-                    type: "list",
-                    name: "employee",
-                    message: "Which employee would you like to update?",
-                    choices: [
-                      `SELECT * FROM employee`
-                    ]
-                  },
-                ])
-                .then((res) => {
-                  db.query("REPLACE INTO employee SET ?", {
-                    first_name: res.employeeFirstName,
-                    last_name: res.employeeLastName,
-                    role_id: res.roleID,
-                    manager_id: res.manager
-                  });
-                  console.log(`${res.employee} employee updated!`);
-                  main();
-                })
-                break;
-              }}
-    )};
+          case "Update an employee":
+          inquirer
+          .prompt([
+      {
+        type: "input",
+        name: "employeeId",
+        message: "What is the ID of the employee you want to update?",
+      },
+      {
+        type: "input",
+        name: "employeeFirstName",
+        message: "What is this employee's new first name?",
+      },
+      {
+        type: "input",
+        name: "employeeLastName",
+        message: "What is the employee's new last name?",
+      },
+      {
+        type: "input",
+        name: "roleID",
+        message: "What is this employee's new role ID?",
+      },
+      {
+        type: "input",
+        name: "manager",
+        message: "What is this employee's new manager ID?",
+      },
+    ])
+    .then((res) => {
+      db.query(
+        "UPDATE employee SET first_name = ?, last_name = ?, role_id = ?, manager_id = ? WHERE id = ?",
+        [res.employeeFirstName, res.employeeLastName, res.roleID, res.manager, res.employeeId],
+        (err, result) => {
+          if (err) throw err;
+          console.log(`Employee with ID ${res.employeeId} updated!`);
+          main();
+        }
+      );
+    });
+            }}
+              )}
