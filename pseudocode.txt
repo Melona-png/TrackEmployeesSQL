@@ -1,5 +1,12 @@
 1. Install your packages, i.e. npm i <all your packages here>
+
 2. Begin to build your prompts to the user, i.e. implement Inquirer
+
 3. Once the user has submitted their answer, analyze the answer and then run the appropriate next function
+
 4. If the user selected 'View all departments,' then you're going to run a mysql query that SELECTS * FROM departments.
-5. 
+
+5. Add options under userselection function
+
+THEN I am presented with the following options: view all departments, view all roles,
+ view all employees, add a department, add a role, add an employee, and update an employee role
