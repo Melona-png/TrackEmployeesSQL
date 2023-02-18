@@ -19,7 +19,7 @@ VALUES (1, "CEO", 1000000),
 
 -- Employee seeds // CHANGE NAMES
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Json", "Borne", 1, null),
+VALUES ("Json", "Borne", 1, 4),
        ("Tom", "Cruise", 2, 1),
        ("Dolly", "Parton", 3, 3),
        ("Thomas", "Burgledorf", 4, 1),
